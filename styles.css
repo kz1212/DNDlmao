@@ -121,7 +121,7 @@ button:hover {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 #result-container {
@@ -162,9 +162,7 @@ button:hover {
     }
 }
 
-
-/* Add these styles to your existing CSS */
-
+/* Scenario Container Styles */
 #scenario-container {
     background: linear-gradient(135deg, #2c003e 0%, #800080 100%);
     border: 3px solid #ff00ff;
@@ -186,6 +184,7 @@ button:hover {
     text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
     font-size: 2.2rem;
     margin-bottom: 10px;
+    font-family: 'Cinzel', serif;
 }
 
 .portal-effect {
@@ -240,16 +239,6 @@ button:hover {
     text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
 }
 
-/* Update existing styles to accommodate new elements */
-#question-container, #result-container {
-    transition: all 0.5s ease;
-}
-
-.hidden {
-    display: none;
-}
-
-/* Add chaos effect to answer buttons during scenario */
 #scenario-container .answer-btn {
     background: linear-gradient(45deg, #800080, #ff00ff);
     border: 2px solid #00ffff;
@@ -263,9 +252,7 @@ button:hover {
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
 }
 
-
-/* Add these styles to your existing CSS */
-
+/* Feedback Container Styles */
 #feedback-container {
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
     border: 2px solid #333;
@@ -358,12 +345,8 @@ button:hover {
     100% { box-shadow: 0 0 5px rgba(138, 3, 3, 0.5); }
 }
 
-/* Update existing scenario styles to remove emojis */
-.scenario-header h2 {
-    color: #ff00ff;
-    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
-    font-size: 2.2rem;
-    margin-bottom: 10px;
-    font-family: 'Cinzel', serif;
+/* Question container transitions */
+#question-container, #result-container {
+    transition: all 0.5s ease;
 }
 

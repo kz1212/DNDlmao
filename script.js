@@ -19,7 +19,6 @@ const quizData = {
                 { text: "Making it an adventure with themed music and snacks", points: { bard: 3, warlock: 2, druid: 1 } }
             ]
         },
-        // Scenario will be inserted here after question 2
         {
             question: "When choosing a vacation spot, you're drawn to...",
             answers: [
@@ -29,6 +28,7 @@ const quizData = {
                 { text: "A bustling city known for its hidden secrets", points: { wizard: 3, sorcerer: 2, bard: 1 } }
             ]
         },
+        // Scenario will be inserted here after question 3
         {
             question: "Your approach to learning a new skill involves...",
             answers: [
@@ -231,6 +231,7 @@ let scenarioTriggered = false;
 let currentScenarioType = null;
 let scenarioStep = 0; // 0 = not in scenario, 1 = part 1, 2 = part 2, 3 = resolution
 let questionsAnswered = 0;
+let feedbackShown = false;
 
 // Initialize scores
 function initScores() {
@@ -247,6 +248,7 @@ function showStartScreen() {
     resultContainer.classList.add('hidden');
     scenarioContainer.classList.add('hidden');
     feedbackContainer.classList.add('hidden');
+    feedbackShown = false;
 }
 
 // Start quiz
@@ -257,6 +259,7 @@ function startQuiz() {
     scenarioTriggered = false;
     scenarioStep = 0;
     questionsAnswered = 0;
+    feedbackShown = false;
     startScreen.classList.add('hidden');
     questionContainer.classList.remove('hidden');
     showQuestion();
@@ -264,8 +267,8 @@ function startQuiz() {
 
 // Show current question
 function showQuestion() {
-    // Check if we should trigger scenario after question 2
-    if (currentQuestion === 2 && !scenarioTriggered) {
+    // Check if we should trigger scenario after question 3 (now question index 3)
+    if (currentQuestion === 3 && !scenarioTriggered) {
         triggerScenario();
         return;
     }
@@ -297,8 +300,6 @@ function triggerScenario() {
     // Get current rankings
     const sortedClasses = Object.keys(scores).sort((a, b) => scores[b] - scores[a]);
     const topClass = sortedClasses[0];
-    const secondClass = sortedClasses[1];
-    const lastClass = sortedClasses[sortedClasses.length - 1];
     
     // Determine scenario type based on top class
     currentScenarioType = quizData.results[topClass].type;
@@ -360,7 +361,6 @@ function exitScenario() {
     scenarioContainer.classList.add('hidden');
     questionContainer.classList.remove('hidden');
     currentQuestion++; // Move to next question after scenario
-    questionsAnswered = 2; // Reset counter after scenario
     showQuestion();
 }
 
@@ -375,9 +375,10 @@ function selectAnswer(points) {
     
     questionsAnswered++;
     
-    // Check if we should show feedback (every 2 questions or after scenario)
-    if (questionsAnswered === 2 || questionsAnswered === 4 || questionsAnswered === 6) {
+    // Check if we should show feedback (every 2 questions, but not after scenario)
+    if ((questionsAnswered === 2 || questionsAnswered === 4 || questionsAnswered === 6) && !feedbackShown) {
         showFeedback();
+        feedbackShown = true;
         return;
     }
     
@@ -402,6 +403,9 @@ function showFeedback() {
     feedbackContainer.classList.remove('hidden');
     feedbackText.textContent = topClassData.feedback;
     
+    // Clear any existing content
+    feedbackContainer.querySelectorAll('.doubt-text, .continue-btn').forEach(el => el.remove());
+    
     // Add doubt text after a delay
     setTimeout(() => {
         const doubtElement = document.createElement('p');
@@ -416,12 +420,9 @@ function showFeedback() {
         continueBtn.addEventListener('click', () => {
             feedbackContainer.classList.add('hidden');
             questionContainer.classList.remove('hidden');
-            currentQuestion++;
-            if (currentQuestion < quizData.questions.length) {
-                showQuestion();
-            } else {
-                showResults();
-            }
+            feedbackShown = false;
+            // Don't increment currentQuestion here - it should stay on the same question
+            showQuestion();
         });
         feedbackContainer.appendChild(continueBtn);
     }, 2000);
