@@ -1,0 +1,271 @@
+// Quiz data
+onst quizData = {
+    questions: [
+        {
+            question: "When faced with a challenge, your first instinct is to...",
+            answers: [
+                { text: "🛡️ Protect others, even at personal risk", points: { paladin: 3, cleric: 2, fighter: 1 } },
+                { text: "🔍 Analyze the situation before acting", points: { wizard: 3, rogue: 2, cleric: 1 } },
+                { text: "⚔️ Charge in headfirst", points: { fighter: 3, barbarian: 2, paladin: 1 } },
+                { text: "🌿 Find a clever, unconventional solution", points: { rogue: 3, druid: 2, wizard: 1 } }
+            ]
+        },
+        {
+            question: "What do people usually ask for your help with?",
+            answers: [
+                { text: "🧘‍♀️ Emotional support or advice", points: { cleric: 3, paladin: 2, bard: 1 } },
+                { text: "🧠 Solving puzzles or riddles", points: { wizard: 3, rogue: 2, bard: 1 } },
+                { text: "💪 Physical tasks or combat", points: { fighter: 3, barbarian: 2, paladin: 1 } },
+                { text: "🧙‍♂️ Creative or magical ideas", points: { bard: 3, warlock: 2, druid: 1 } }
+            ]
+        },
+        {
+            question: "How do you react when someone judges you unfairly?",
+            answers: [
+                { text: "😌 Let it go—you know who you are", points: { druid: 3, cleric: 2, paladin: 1 } },
+                { text: "🤔 Try to understand their perspective", points: { cleric: 3, wizard: 2, bard: 1 } },
+                { text: "⚡ Confront them directly", points: { paladin: 3, fighter: 2, barbarian: 1 } },
+                { text: "🌑 Plot a subtle revenge", points: { rogue: 3, warlock: 2, wizard: 1 } }
+            ]
+        },
+        {
+            question: "Your ideal weekend looks like...",
+            answers: [
+                { text: "📚 Reading a book by the fire", points: { wizard: 3, cleric: 2, druid: 1 } },
+                { text: "🧩 Solving a complex board game", points: { rogue: 3, wizard: 2, bard: 1 } },
+                { text: "🛡️ Training or practicing a skill", points: { fighter: 3, paladin: 2, barbarian: 1 } },
+                { text: "🌌 Exploring the unknown", points: { druid: 3, rogue: 2, warlock: 1 } }
+            ]
+        },
+        {
+            question: "What's your relationship with authority?",
+            answers: [
+                { text: "🙋‍♀️ Respect it, but question it", points: { paladin: 3, rogue: 2, cleric: 1 } },
+                { text: "🧾 Follow it strictly", points: { fighter: 3, cleric: 2, paladin: 1 } },
+                { text: "🤷‍♂️ Ignore it unless forced", points: { rogue: 3, barbarian: 2, druid: 1 } },
+                { text: "🎭 Use it to your advantage", points: { bard: 3, warlock: 2, rogue: 1 } }
+            ]
+        },
+        {
+            question: "Which element resonates most with you?",
+            answers: [
+                { text: "💧 Water – adaptable and deep", points: { druid: 3, cleric: 2, rogue: 1 } },
+                { text: "🔥 Fire – passionate and intense", points: { barbarian: 3, sorcerer: 2, paladin: 1 } },
+                { text: "🌍 Earth – grounded and strong", points: { druid: 3, fighter: 2, cleric: 1 } },
+                { text: "🌪️ Air – free and clever", points: { wizard: 3, sorcerer: 2, bard: 1 } }
+            ]
+        },
+        {
+            question: "What's your biggest flaw?",
+            answers: [
+                { text: "🫂 Overprotectiveness", points: { paladin: 3, cleric: 2, druid: 1 } },
+                { text: "🧊 Cold logic", points: { wizard: 3, rogue: 2, fighter: 1 } },
+                { text: "🤯 Impulsiveness", points: { barbarian: 3, sorcerer: 2, bard: 1 } },
+                { text: "🌫️ Indecisiveness", points: { druid: 3, wizard: 2, rogue: 1 } }
+            ]
+        },
+        {
+            question: "In a group, you're usually the...",
+            answers: [
+                { text: "💬 Mediator", points: { cleric: 3, bard: 2, paladin: 1 } },
+                { text: "🧠 Strategist", points: { wizard: 3, rogue: 2, fighter: 1 } },
+                { text: "⚔️ Leader", points: { paladin: 3, fighter: 2, barbarian: 1 } },
+                { text: "🎭 Wildcard", points: { bard: 3, sorcerer: 2, rogue: 1 } }
+            ]
+        },
+        {
+            question: "What do you value most?",
+            answers: [
+                { text: "🤝 Loyalty", points: { paladin: 3, fighter: 2, cleric: 1 } },
+                { text: "🧠 Knowledge", points: { wizard: 3, cleric: 2, rogue: 1 } },
+                { text: "💪 Power", points: { barbarian: 3, fighter: 2, sorcerer: 1 } },
+                { text: "🌟 Freedom", points: { rogue: 3, druid: 2, bard: 1 } }
+            ]
+        },
+        {
+            question: "If you could have any magical ability, it would be...",
+            answers: [
+                { text: "🛡️ Healing or protection", points: { cleric: 3, paladin: 2, druid: 1 } },
+                { text: "🔮 Divination or mind magic", points: { wizard: 3, warlock: 2, bard: 1 } },
+                { text: "⚡ Destruction or combat magic", points: { sorcerer: 3, wizard: 2, barbarian: 1 } },
+                { text: "🌿 Nature or illusion magic", points: { druid: 3, bard: 2, warlock: 1 } }
+            ]
+        }
+    ],
+    results: {
+        wizard: {
+            name: "🧙‍♀️ Wizard",
+            description: "You seek knowledge above all. Your mind is your greatest weapon. You value logic, strategy, and understanding the world's mysteries. You're introspective, curious, and thrive in intellectual environments.",
+            secondary: "sorcerer"
+        },
+        fighter: {
+            name: "⚔️ Fighter",
+            description: "You meet conflict head-on, with strength, skill, and honor. You're action-oriented, bold, and thrive in physical challenges. You value discipline and directness.",
+            secondary: "barbarian"
+        },
+        druid: {
+            name: "🌿 Druid",
+            description: "You are one with nature, intuitive and adaptable. You're empathetic, flexible, and drawn to harmony. You prefer peaceful solutions but can be fierce when needed.",
+            secondary: "ranger"
+        },
+        rogue: {
+            name: "🎭 Rogue",
+            description: "You're clever, resourceful, and always one step ahead. You value freedom, wit, and subtlety. You're a master of improvisation and charm.",
+            secondary: "bard"
+        },
+        paladin: {
+            name: "🛡️ Paladin",
+            description: "You fight for justice, guided by a strong moral compass. You're noble, protective, and driven by your beliefs. You inspire others and lead by example.",
+            secondary: "cleric"
+        },
+        cleric: {
+            name: "🙏 Cleric",
+            description: "You are guided by faith and serve as a beacon of hope. You heal, protect, and provide spiritual guidance. You're compassionate and dedicated to your cause.",
+            secondary: "paladin"
+        },
+        barbarian: {
+            name: "🤬 Barbarian",
+            description: "You unleash raw power and fury in battle. You're driven by instinct and emotion. You value strength, freedom, and living in the moment.",
+            secondary: "fighter"
+        },
+        bard: {
+            name: "🎵 Bard",
+            description: "You inspire others through words, music, and performance. You're charismatic, creative, and skilled at bringing people together. You value expression and connection.",
+            secondary: "rogue"
+        },
+        sorcerer: {
+            name: "🔥 Sorcerer",
+            description: "You wield innate magical power that flows through your bloodline. You're intuitive, passionate, and your magic is as unpredictable as you are.",
+            secondary: "wizard"
+        },
+        warlock: {
+            name: "🌑 Warlock",
+            description: "You've made a pact for power—but at what cost? You're ambitious, intuitive, and drawn to the shadows. You seek strength and answers beyond the ordinary.",
+            secondary: "sorcerer"
+        }
+    }
+};
+
+// DOM elements
+const startScreen = document.getElementById('start-screen');
+const questionContainer = document.getElementById('question-container');
+const resultContainer = document.getElementById('result-container');
+const startBtn = document.getElementById('start-btn');
+const restartBtn = document.getElementById('restart-btn');
+const questionText = document.getElementById('question-text');
+const answersContainer = document.getElementById('answers-container');
+const progressBar = document.getElementById('progress');
+const primaryClass = document.getElementById('primary-class');
+const primaryDescription = document.getElementById('primary-description');
+const secondaryClass = document.getElementById('secondary-class');
+const secondaryDescription = document.getElementById('secondary-description');
+
+// Quiz state
+let currentQuestion = 0;
+let scores = {};
+
+// Initialize scores
+function initScores() {
+    scores = {};
+    Object.keys(quizData.results).forEach(classType => {
+        scores[classType] = 0;
+    });
+}
+
+// Show start screen
+function showStartScreen() {
+    startScreen.classList.remove('hidden');
+    questionContainer.classList.add('hidden');
+    resultContainer.classList.add('hidden');
+}
+
+// Start quiz
+function startQuiz() {
+    initScores();
+    currentQuestion = 0;
+    startScreen.classList.add('hidden');
+    questionContainer.classList.remove('hidden');
+    showQuestion();
+}
+
+// Show current question
+function showQuestion() {
+    const question = quizData.questions[currentQuestion];
+    questionText.textContent = question.question;
+    
+    // Update progress bar
+    const progressPercent = ((currentQuestion) / quizData.questions.length) * 100;
+    progressBar.style.width = `${progressPercent}%`;
+    
+    // Clear previous answers
+    answersContainer.innerHTML = '';
+    
+    // Add answers
+    question.answers.forEach((answer, index) => {
+        const button = document.createElement('button');
+        button.classList.add('answer-btn');
+        button.textContent = answer.text;
+        button.addEventListener('click', () => selectAnswer(answer.points));
+        answersContainer.appendChild(button);
+    });
+}
+
+// Handle answer selection
+function selectAnswer(points) {
+    // Add points to scores
+    Object.keys(points).forEach(classType => {
+        scores[classType] += points[classType];
+    });
+    
+    // Move to next question or show results
+    currentQuestion++;
+    if (currentQuestion < quizData.questions.length) {
+        showQuestion();
+    } else {
+        showResults();
+    }
+}
+
+// Show results
+function showResults() {
+    questionContainer.classList.add('hidden');
+    resultContainer.classList.remove('hidden');
+    
+    // Find primary result
+    let primaryClassType = '';
+    let maxScore = -1;
+    
+    Object.keys(scores).forEach(classType => {
+        if (scores[classType] > maxScore) {
+            maxScore = scores[classType];
+            primaryClassType = classType;
+        }
+    });
+    
+    // Find secondary result (excluding primary)
+    let secondaryClassType = '';
+    maxScore = -1;
+    
+    Object.keys(scores).forEach(classType => {
+        if (classType !== primaryClassType && scores[classType] > maxScore) {
+            maxScore = scores[classType];
+            secondaryClassType = classType;
+        }
+    });
+    
+    // Display results
+    const primaryResult = quizData.results[primaryClassType];
+    const secondaryResult = quizData.results[secondaryClassType];
+    
+    primaryClass.textContent = primaryResult.name;
+    primaryDescription.textContent = primaryResult.description;
+    
+    secondaryClass.textContent = `_secondary: ${secondaryResult.name}_`;
+    secondaryDescription.textContent = secondaryResult.description;
+    
+    // Update progress bar to 100%
+    progressBar.style.width = '100%';
+}
+
+// Event listeners
+startBtn.addEvent

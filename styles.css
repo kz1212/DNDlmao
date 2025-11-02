@@ -162,3 +162,208 @@ button:hover {
     }
 }
 
+
+/* Add these styles to your existing CSS */
+
+#scenario-container {
+    background: linear-gradient(135deg, #2c003e 0%, #800080 100%);
+    border: 3px solid #ff00ff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+    position: relative;
+    overflow: hidden;
+    animation: pulse 2s infinite;
+}
+
+.scenario-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.scenario-header h2 {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.portal-effect {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #00ffff, #ff00ff, #ffff00);
+    margin: 0 auto;
+    animation: rotate 4s linear infinite, pulse-border 1.5s infinite;
+    position: relative;
+}
+
+.portal-effect::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    border: 2px solid #00ffff;
+    animation: rotate-reverse 3s linear infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 30px rgba(255, 0, 255, 0.5); }
+    50% { box-shadow: 0 0 50px rgba(0, 255, 255, 0.8); }
+    100% { box-shadow: 0 0 30px rgba(255, 0, 255, 0.5); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes rotate-reverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@keyframes pulse-border {
+    0% { border-width: 2px; }
+    50% { border-width: 4px; }
+    100% { border-width: 2px; }
+}
+
+#scenario-question {
+    font-size: 1.4rem;
+    color: #00ffff;
+    text-align: center;
+    margin: 25px 0;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
+}
+
+/* Update existing styles to accommodate new elements */
+#question-container, #result-container {
+    transition: all 0.5s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Add chaos effect to answer buttons during scenario */
+#scenario-container .answer-btn {
+    background: linear-gradient(45deg, #800080, #ff00ff);
+    border: 2px solid #00ffff;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+#scenario-container .answer-btn:hover {
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+}
+
+
+/* Add these styles to your existing CSS */
+
+#feedback-container {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    border: 2px solid #333;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#feedback-container h3 {
+    color: #8a0303;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(138, 3, 3, 0.5);
+    font-family: 'Cinzel', serif;
+}
+
+#feedback-text {
+    font-size: 1.3rem;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-style: italic;
+    max-width: 600px;
+}
+
+.doubt-text {
+    font-size: 1.1rem;
+    color: #888;
+    font-style: italic;
+    margin-top: 15px;
+    animation: fadeIn 2s ease-in;
+}
+
+.continue-btn {
+    margin-top: 30px;
+    background: linear-gradient(to right, #8a0303, #5a0202);
+    animation: pulse-button 2s infinite;
+}
+
+.shadow-figure {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, transparent 40%, rgba(0, 0, 0, 0.8) 70%);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    position: relative;
+    animation: shadow-pulse 3s infinite;
+}
+
+.shadow-figure::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background: rgba(138, 3, 3, 0.3);
+    border-radius: 50%;
+    animation: shadow-eyes 4s infinite;
+}
+
+@keyframes shadow-pulse {
+    0% { box-shadow: 0 0 10px rgba(138, 3, 3, 0.3); }
+    50% { box-shadow: 0 0 30px rgba(138, 3, 3, 0.6); }
+    100% { box-shadow: 0 0 10px rgba(138, 3, 3, 0.3); }
+}
+
+@keyframes shadow-eyes {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.8; transform: scale(1.2); }
+    100% { opacity: 0.3; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-button {
+    0% { box-shadow: 0 0 5px rgba(138, 3, 3, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(138, 3, 3, 0.8); }
+    100% { box-shadow: 0 0 5px rgba(138, 3, 3, 0.5); }
+}
+
+/* Update existing scenario styles to remove emojis */
+.scenario-header h2 {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    font-family: 'Cinzel', serif;
+}
+
