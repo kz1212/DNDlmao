@@ -1,4 +1,4 @@
-// Quiz data
+// Quiz data with improved dialogue and multiple feedback options
 const quizData = {
     questions: [
         {
@@ -7,7 +7,7 @@ const quizData = {
                 { text: "Let it slide to preserve harmony", points: { paladin: 3, cleric: 2, fighter: 1 } },
                 { text: "Point it out with careful reasoning", points: { wizard: 3, rogue: 2, cleric: 1 } },
                 { text: "Interrupt to correct them immediately", points: { fighter: 3, barbarian: 2, paladin: 1 } },
-                { text: "Redirect the conversation巧妙ly", points: { rogue: 3, druid: 2, wizard: 1 } }
+                { text: "Redirect the conversation skillfully", points: { rogue: 3, druid: 2, wizard: 1 } }
             ]
         },
         {
@@ -72,80 +72,160 @@ const quizData = {
             description: "You seek knowledge above all. Your mind is your greatest weapon. You value logic, strategy, and understanding the world's mysteries. You're introspective, curious, and thrive in intellectual environments.",
             secondary: "sorcerer",
             type: "magical",
-            feedback: "Knowledge can be a prison... Are you sure you're not just afraid to embrace raw power? That careful analysis of yours might just be cowardice in disguise.",
-            doubt: "Even the brightest minds can be blinded by their own assumptions..."
+            feedbacks: [
+                "Knowledge can be a prison... Are you sure you're not just afraid to embrace raw power? That careful analysis of yours might just be cowardice in disguise.",
+                "All that studying has made you predictable. True wisdom comes from experience, not dusty tomes.",
+                "Your intellect is a shield against the chaos of emotion. But what happens when that shield shatters?"
+            ],
+            doubts: [
+                "Even the brightest minds can be blinded by their own assumptions...",
+                "Knowledge without action is just empty theory. When will you put your learning to the test?",
+                "The greatest mysteries can't be solved by logic alone. Your methods have limits."
+            ]
         },
         fighter: {
             name: "Fighter",
             description: "You meet conflict head-on, with strength, skill, and honor. You're action-oriented, bold, and thrive in physical challenges. You value discipline and directness.",
             secondary: "barbarian",
             type: "melee",
-            feedback: "Honor is just a pretty word for predictability... That discipline of yours might be holding you back from true strength.",
-            doubt: "Brute force solves nothing that a sharper mind couldn't prevent..."
+            feedbacks: [
+                "Honor is just a pretty word for predictability... That discipline of yours might be holding you back from true strength.",
+                "Your reliance on technique shows a lack of imagination. True warriors adapt, not follow rules.",
+                "Strength without cunning is just brute force. How many battles have you lost to smarter opponents?"
+            ],
+            doubts: [
+                "Brute force solves nothing that a sharper mind couldn't prevent...",
+                "Discipline can become a cage. When will you break free and discover your true potential?",
+                "Honor won't save you from an enemy who plays by different rules."
+            ]
         },
         druid: {
             name: "Druid",
             description: "You are one with nature, intuitive and adaptable. You're empathetic, flexible, and drawn to harmony. You prefer peaceful solutions but can be fierce when needed.",
             secondary: "ranger",
             type: "magical",
-            feedback: "Peaceful solutions are for those who can't handle real conflict... That harmony you seek might just be a weakness in disguise.",
-            doubt: "Adaptability without conviction is just chaos waiting to happen..."
+            feedbacks: [
+                "Peaceful solutions are for those who can't handle real conflict... That harmony you seek might just be a weakness in disguise.",
+                "Nature is not always gentle. Your peaceful approach ignores the predator within us all.",
+                "Adaptability without conviction is just chaos waiting to happen. Where is your true allegiance?"
+            ],
+            doubts: [
+                "Adaptability without conviction is just chaos waiting to happen...",
+                "Harmony is an illusion. The natural world is built on conflict and survival.",
+                "Your connection to nature makes you vulnerable to its darker aspects."
+            ]
         },
         rogue: {
             name: "Rogue",
             description: "You're clever, resourceful, and always one step ahead. You value freedom, wit, and subtlety. You're a master of improvisation and charm.",
             secondary: "bard",
             type: "stealth",
-            feedback: "Cleverness without loyalty is just selfishness... That freedom you crave might be isolating you from what truly matters.",
-            doubt: "Always one step ahead, or always running away from something?"
+            feedbacks: [
+                "Cleverness without loyalty is just selfishness... That freedom you crave might be isolating you from what truly matters.",
+                "Your tricks and schemes reveal a deep insecurity. Why can't you face challenges directly?",
+                "Always having an escape plan means you're never truly committed. What are you running from?"
+            ],
+            doubts: [
+                "Always one step ahead, or always running away from something?",
+                "Freedom is just another word for having nothing to lose. What would you fight to keep?",
+                "Your cleverness is a mask for what you lack in genuine strength."
+            ]
         },
         paladin: {
             name: "Paladin",
             description: "You fight for justice, guided by a strong moral compass. You're noble, protective, and driven by your beliefs. You inspire others and lead by example.",
             secondary: "cleric",
             type: "melee",
-            feedback: "Justice is just another word for control... That morality of yours might be blinding you to the gray areas that matter most.",
-            doubt: "A noble cause doesn't make you noble... Just self-righteous."
+            feedbacks: [
+                "Justice is just another word for control... That morality of yours might be blinding you to the gray areas that matter most.",
+                "Your rigid code makes you predictable. True heroes know when to bend the rules.",
+                "Nobility is a heavy burden. How many have you sacrificed for your 'greater good'?"
+            ],
+            doubts: [
+                "A noble cause doesn't make you noble... Just self-righteous.",
+                "Justice without mercy is just vengeance in fancy armor.",
+                "Your moral certainty is your greatest weakness. The world is shades of gray."
+            ]
         },
         cleric: {
             name: "Cleric",
             description: "You are guided by faith and serve as a beacon of hope. You heal, protect, and provide spiritual guidance. You're compassionate and dedicated to your cause.",
             secondary: "paladin",
             type: "magical",
-            feedback: "Faith is just hope without evidence... That compassion might be enabling weakness in others.",
-            doubt: "Serving others or just needing to feel needed? The line blurs..."
+            feedbacks: [
+                "Faith is just hope without evidence... That compassion might be enabling weakness in others.",
+                "Your healing hands hide a need to be needed. Who heals the healer?",
+                "Faith can be a crutch for those unwilling to face harsh realities."
+            ],
+            doubts: [
+                "Serving others or just needing to feel needed? The line blurs...",
+                "Hope is a dangerous commodity. What happens when it runs out?",
+                "Your compassion makes you vulnerable to those who would exploit it."
+            ]
         },
         barbarian: {
             name: "Barbarian",
             description: "You unleash raw power and fury in battle. You're driven by instinct and emotion. You value strength, freedom, and living in the moment.",
             secondary: "fighter",
             type: "melee",
-            feedback: "Fury is just controlled chaos... That instinct of yours might be keeping you from your true potential.",
-            doubt: "Living in the moment or running from responsibility? The roar drowns out the truth..."
+            feedbacks: [
+                "Fury is just controlled chaos... That instinct of yours might be keeping you from your true potential.",
+                "Rage is a temporary solution. What happens when the battle is over and the anger fades?",
+                "Your brute strength masks a fear of subtlety. Some problems can't be smashed."
+            ],
+            doubts: [
+                "Living in the moment or running from responsibility? The roar drowns out the truth...",
+                "Strength without strategy is wasted effort. How many battles have you won by luck alone?",
+                "Your freedom is just another cage—one built of impulse and lack of control."
+            ]
         },
         bard: {
             name: "Bard",
             description: "You inspire others through words, music, and performance. You're charismatic, creative, and skilled at bringing people together. You value expression and connection.",
             secondary: "rogue",
             type: "stealth",
-            feedback: "Inspiration is just manipulation with better branding... That charm might be hiding your true self from even you.",
-            doubt: "A story well told or a truth well hidden? The audience always claps..."
+            feedbacks: [
+                "Inspiration is just manipulation with better branding... That charm might be hiding your true self from even you.",
+                "Your stories are just distractions from an empty core. What truth are you avoiding?",
+                "Charisma is a mask. Who are you when the performance ends and the audience leaves?"
+            ],
+            doubts: [
+                "A story well told or a truth well hidden? The audience always claps...",
+                "Your creativity is just a fancy escape from reality. When will you face what's real?",
+                "Inspiring others is easy when you don't have to live with the consequences."
+            ]
         },
         sorcerer: {
             name: "Sorcerer",
             description: "You wield innate magical power that flows through your bloodline. You're intuitive, passionate, and your magic is as unpredictable as you are.",
             secondary: "wizard",
             type: "magical",
-            feedback: "Innate power without understanding is just dangerous... That intuition might be leading you astray.",
-            doubt: "Passion burns bright but consumes everything in its path..."
+            feedbacks: [
+                "Innate power without understanding is just dangerous... That intuition might be leading you astray.",
+                "Your raw talent is untamed potential. Without discipline, it will consume you.",
+                "Passion burns bright but consumes everything in its path, including you."
+            ],
+            doubts: [
+                "Passion burns bright but consumes everything in its path...",
+                "Your innate power is a gift you didn't earn. What have you truly accomplished on your own?",
+                "Intuition is just guessing with confidence. When will your luck run out?"
+            ]
         },
         warlock: {
             name: "Warlock",
             description: "You've made a pact for power—but at what cost? You're ambitious, intuitive, and drawn to the shadows. You seek strength and answers beyond the ordinary.",
             secondary: "sorcerer",
             type: "magical",
-            feedback: "Power always demands a price... That ambition of yours might be consuming more than you realize.",
-            doubt: "A pact made in desperation or just another deal with the dark?"
+            feedbacks: [
+                "Power always demands a price... That ambition of yours might be consuming more than you realize.",
+                "Your pact is a chain disguised as opportunity. Who truly holds the leash?",
+                "Seeking power in dark places reveals a emptiness within. What are you trying to fill?"
+            ],
+            doubts: [
+                "A pact made in desperation or just another deal with the dark?",
+                "Ambition is a hunger that never truly gets fed. What will be left when it's consumed you?",
+                "Your search for answers in shadows suggests you're afraid of the light."
+            ]
         }
     },
     scenarios: {
@@ -229,9 +309,11 @@ let scores = {};
 let eliminatedClass = null;
 let scenarioTriggered = false;
 let currentScenarioType = null;
-let scenarioStep = 0; // 0 = not in scenario, 1 = part 1, 2 = part 2, 3 = resolution
+let scenarioStep = 0;
 let questionsAnswered = 0;
 let feedbackShown = false;
+let lastTopClass = null;
+let feedbackIndex = 0;
 
 // Initialize scores
 function initScores() {
@@ -249,6 +331,8 @@ function showStartScreen() {
     scenarioContainer.classList.add('hidden');
     feedbackContainer.classList.add('hidden');
     feedbackShown = false;
+    lastTopClass = null;
+    feedbackIndex = 0;
 }
 
 // Start quiz
@@ -260,6 +344,8 @@ function startQuiz() {
     scenarioStep = 0;
     questionsAnswered = 0;
     feedbackShown = false;
+    lastTopClass = null;
+    feedbackIndex = 0;
     startScreen.classList.add('hidden');
     questionContainer.classList.remove('hidden');
     showQuestion();
@@ -267,7 +353,7 @@ function startQuiz() {
 
 // Show current question
 function showQuestion() {
-    // Check if we should trigger scenario after question 3 (now question index 3)
+    // Check if we should trigger scenario after question 3
     if (currentQuestion === 3 && !scenarioTriggered) {
         triggerScenario();
         return;
@@ -368,7 +454,7 @@ function exitScenario() {
 function selectAnswer(points) {
     // Add points to scores
     Object.keys(points).forEach(classType => {
-        if (scores[classType] !== undefined) { // Only add points if class wasn't eliminated
+        if (scores[classType] !== undefined) {
             scores[classType] += points[classType];
         }
     });
@@ -398,34 +484,54 @@ function showFeedback() {
     const topClass = sortedClasses[0];
     const topClassData = quizData.results[topClass];
     
+    // Determine which feedback to use
+    if (topClass === lastTopClass) {
+        feedbackIndex = (feedbackIndex + 1) % topClassData.feedbacks.length;
+    } else {
+        feedbackIndex = 0;
+        lastTopClass = topClass;
+    }
+    
     // Show feedback
     questionContainer.classList.add('hidden');
     feedbackContainer.classList.remove('hidden');
-    feedbackText.textContent = topClassData.feedback;
+    feedbackText.textContent = topClassData.feedbacks[feedbackIndex];
     
     // Clear any existing content
-    feedbackContainer.querySelectorAll('.doubt-text, .continue-btn').forEach(el => el.remove());
+    const existingDoubt = feedbackContainer.querySelector('.doubt-text');
+    const existingButton = feedbackContainer.querySelector('.continue-btn');
+    if (existingDoubt) existingDoubt.remove();
+    if (existingButton) existingButton.remove();
     
     // Add doubt text after a delay
     setTimeout(() => {
         const doubtElement = document.createElement('p');
-        doubtElement.textContent = topClassData.doubt;
+        doubtElement.textContent = topClassData.doubts[feedbackIndex];
         doubtElement.classList.add('doubt-text');
+        doubtElement.style.opacity = '0';
+        doubtElement.style.animation = 'fadeInText 1s ease-in forwards';
         feedbackContainer.appendChild(doubtElement);
         
         // Add continue button
         const continueBtn = document.createElement('button');
         continueBtn.textContent = "Continue";
         continueBtn.classList.add('answer-btn', 'continue-btn');
+        continueBtn.style.opacity = '0';
+        continueBtn.style.animation = 'fadeInButton 1s ease-in 0.5s forwards';
         continueBtn.addEventListener('click', () => {
             feedbackContainer.classList.add('hidden');
             questionContainer.classList.remove('hidden');
             feedbackShown = false;
-            // Don't increment currentQuestion here - it should stay on the same question
-            showQuestion();
+            // Move to next question
+            currentQuestion++;
+            if (currentQuestion < quizData.questions.length) {
+                showQuestion();
+            } else {
+                showResults();
+            }
         });
         feedbackContainer.appendChild(continueBtn);
-    }, 2000);
+    }, 1500);
 }
 
 // Show results
